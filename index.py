@@ -1,4 +1,9 @@
 #Definição dos inputs
+
+numero_datas = int(input("Quantos dias você deseja registrar? "))
+numero_grupos = int(input("Quantos grupos você exercitou nesse dia? "))
+
+
 data = input("Insira a data do treino: ")
 grupo_muscular = input("Insira o Grupo Muscular: ")
 nome = input("Insira o Nome do Exercício: ")
