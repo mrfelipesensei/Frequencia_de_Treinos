@@ -23,5 +23,9 @@ def ler_json():
                 return []
     return []
 
-
 #Função para salvar o JSON
+def salvar_json(dados):
+    with open(arquivo_json,"w") as file:
+        json.dump(dados,file, indent=4)
+    
+
