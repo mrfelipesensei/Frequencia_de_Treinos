@@ -43,3 +43,15 @@ def adicionar_treino():
     treinos.append(novo_treino)
     salvar_json(treinos)
     return jsonify({"mensagem":"Treino adicionado com sucesso!"}), 201
+
+#Remove um treino específico
+@app.route('/trinos/<data>',methods=['DELETE'])
+def deletar_treino(data):
+    treinos = ler_json()
+    treinos_filtrados = [t for t in treinos if t["data"] != data]
+
+    if len(treinos) == len(treinos_filtrados):
+        return jsonify({"erro": "Treino não encontrado!"}), 404
+    
+    salvar_json(treinos_filtrados)
+    return jsonify({"mensagem": "Treino removido com sucesso!"})
