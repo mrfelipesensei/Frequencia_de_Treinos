@@ -1,0 +1,10 @@
+Como testar a API Flask?
+
+1 - Abrir o terminal e executar 'python app.py'
+2 - Em outro terminal, testar as rotas:
+3 - Ver todos os treinos
+curl -X GET http://127.0.0.1:5000/treinos
+4 - Adicionar um treino:
+curl -X POST "http://127.0.0.1:5000/treinos" -H "Content-Type: application/json" -d "{\"data\": \"19-03-2025\", \"exercícios\": [{\"grupo_muscular\": \"Peito\", \"nome\": \"Supino\"}]}"
+5 - Remover um treino:
+curl -X DELETE http://127.0.0.1:5000/treinos/19-03-2025

@@ -1,4 +1,3 @@
-import flask
 import json
 import os
 
@@ -25,8 +24,8 @@ def ler_json():
 
 #Função para salvar o JSON
 def salvar_json(dados):
-    with open(arquivo_json,"w") as file:
-        json.dump(dados,file, indent=4)
+    with open(arquivo_json,"w",encoding="utf-8") as file:
+        json.dump(dados,file, indent=4, ensure_ascii=False)
     
 #Criando rotas da API
 #Retorna todos os treinos salvos
@@ -45,7 +44,7 @@ def adicionar_treino():
     return jsonify({"mensagem":"Treino adicionado com sucesso!"}), 201
 
 #Remove um treino específico
-@app.route('/trinos/<data>',methods=['DELETE'])
+@app.route('/treinos/<data>',methods=['DELETE'])
 def deletar_treino(data):
     treinos = ler_json()
     treinos_filtrados = [t for t in treinos if t["data"] != data]
@@ -55,3 +54,6 @@ def deletar_treino(data):
     
     salvar_json(treinos_filtrados)
     return jsonify({"mensagem": "Treino removido com sucesso!"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
