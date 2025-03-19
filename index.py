@@ -23,8 +23,9 @@ for _ in range(numero_datas):
         exercicios.append({"grupo_muscular": grupo_muscular, "nome": nome})
         #Insere em exercícios os valores dos inputs
 
-treino = {"data": data, "exercícios" : exercicios}
-treinos.append(treino)
+    #Adiciona o treino do dia à lista de treinos
+    treino = {"data": data, "exercícios" : exercicios}
+    treinos.append(treino)
 #Insere no dicionário treino os valores de data e seus respectivos exercícios(grupo_muscular,nome)
 #Insere no dicionário treinos os valores do treino associado à data
 
