@@ -19,7 +19,15 @@ else:
 treinos_por_data = {treino["data"]: treino for treino in dados_antigos}
 
 #Definição dos inputs
-numero_datas = int(input("Quantos dias você deseja registrar? "))
+while True:
+    try:
+        numero_datas = int(input("Quantos dias você deseja registrar? "))
+        if numero_datas <= 0:
+            print("Insira um número mairo que zero")
+        else:
+            break
+    except ValueError:
+        print("Entrada inválida. Por favor, digite um número inteiro.")
 
 #Lista para armazenar treinos novos
 treinos_novos = []
