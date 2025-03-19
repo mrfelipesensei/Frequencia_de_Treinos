@@ -6,5 +6,7 @@ Como testar a API Flask?
 curl -X GET http://127.0.0.1:5000/treinos
 4 - Adicionar um treino:
 curl -X POST "http://127.0.0.1:5000/treinos" -H "Content-Type: application/json" -d "{\"data\": \"19-03-2025\", \"exercícios\": [{\"grupo_muscular\": \"Peito\", \"nome\": \"Supino\"}]}"
-5 - Remover um treino:
+5 - Atualizar um treino:
+curl -X PUT "http://127.0.0.1:5000/treinos/19-03-2025" -H "Content-Type: application/json" -d "{\"exercícios\": [{\"grupo_muscular\": \"Peito\", \"nome\": \"Supino reto\"}, {\"grupo_muscular\": \"Costas\", \"nome\": \"Puxada na frente\"}]}"
+6 - Remover um treino:
 curl -X DELETE http://127.0.0.1:5000/treinos/19-03-2025

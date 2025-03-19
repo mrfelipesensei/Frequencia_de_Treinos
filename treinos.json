@@ -34,5 +34,18 @@
                 "nome": "Crucifixo"
             }
         ]
+    },
+    {
+        "data": "19-03-2025",
+        "exercícios": [
+            {
+                "grupo_muscular": "Peito",
+                "nome": "Supino reto"
+            },
+            {
+                "grupo_muscular": "Costas",
+                "nome": "Puxada na frente"
+            }
+        ]
     }
 ]

@@ -15,7 +15,7 @@ arquivo_json = "treinos.json"
 #Função para ler o JSON
 def ler_json():
     if os.path.exists(arquivo_json):
-        with open(arquivo_json) as file:
+        with open(arquivo_json,encoding="utf-8") as file:
             try:
                 return json.load(file)
             except json.JSONDecodeError:
@@ -38,6 +38,12 @@ def obter_treinos():
 @app.route('/treinos',methods=['POST'])
 def adicionar_treino():
     novo_treino = request.json
+
+    #Validação básica de entrada
+    if "data" not in novo_treino or "exercícios" not in novo_treino:
+        return jsonify({"erro":"Campos 'data' e 'exercícios' são obrigatórios!"}), 400
+
+
     treinos = ler_json()
     treinos.append(novo_treino)
     salvar_json(treinos)
@@ -54,6 +60,28 @@ def deletar_treino(data):
     
     salvar_json(treinos_filtrados)
     return jsonify({"mensagem": "Treino removido com sucesso!"})
+
+#Rota para atualizar um treino existente
+@app.route('/treinos/<data>', methods=['PUT'])
+def atualizar_treino(data):
+    treinos = ler_json()
+    treino_encontrado = None
+
+    for treino in treinos:
+        if treino["data"] == data:
+            treino_encontrado = treino
+            break
+    
+    if not treino_encontrado:
+        return jsonify({"erro":"Treino não encontrado!"}), 404
+
+
+    dados_atualizados = request.json
+    treino_encontrado.update(dados_atualizados)
+    salvar_json(treinos)
+
+    return jsonify({"mensagem":"Treino atualizado com sucesso"})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
