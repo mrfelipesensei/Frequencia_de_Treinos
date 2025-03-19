@@ -12,24 +12,17 @@
         "data": "31-10-2024",
         "exerc\u00edcios": [
             {
+                "grupo_muscular": "C\u00e1rdio",
+                "nome": "Corda"
+            }
+        ]
+    },
+    {
+        "data": "30-10-2024",
+        "exerc\u00edcios": [
+            {
                 "grupo_muscular": "Biceps",
-                "nome": "Pulley"
-            },
-            {
-                "grupo_muscular": "Costas",
-                "nome": "Remada"
-            },
-            {
-                "grupo_muscular": "Ombro",
-                "nome": "Voador"
-            },
-            {
-                "grupo_muscular": "Quadriceps",
-                "nome": "Extensora"
-            },
-            {
-                "grupo_muscular": "Femoral",
-                "nome": "Stiff"
+                "nome": "Barra"
             }
         ]
     }
