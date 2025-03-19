@@ -24,7 +24,7 @@ while True:
     try:
         numero_datas = int(input("Quantos dias você deseja registrar? "))
         if numero_datas <= 0:
-            print("Insira um número mairo que zero")
+            print("Insira um número maior que zero")
         else:
             break
     except ValueError:
@@ -53,7 +53,7 @@ for _ in range(numero_datas):
         if validar_data(data):
             break
         else:
-            print("Data inválida. Por favor, insira da data no formato DD-MM-AAAA")
+            print("Data inválida. Por favor, insira a data no formato DD-MM-AAAA")
 
 
     #Verifica se a data já existe nos registros
