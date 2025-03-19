@@ -44,7 +44,16 @@ for _ in range(numero_datas):
             print(f"Treino do dia {data} mantido.\n")
             continue #Pula para a próxima iteração, mantendo os dados antigos
 
-    numero_grupos = int(input(f"Quantos grupos você exercitou em {data}? "))
+    while True:
+        try:
+            numero_grupos = int(input(f"Quantos grupos você exercitou em {data}? "))
+            if numero_grupos <= 0:
+                print("Insira um número maior que zero.")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número inteiro.") 
+
 
     #Dicionário vazio que receberá os valores associados à exercicios(grupo_muscular,nome)
     exercicios = []
