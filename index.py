@@ -1,6 +1,7 @@
 #Salvar os dados em um arquivo JSON
 import json
 import os
+import re
 
 #Nome do arquivo
 arquivo_json = "treinos.json"
@@ -32,8 +33,28 @@ while True:
 #Lista para armazenar treinos novos
 treinos_novos = []
 
+#Função para validar o formato de data DD-MM-AAAA
+def validar_data(data):
+    #Expressão regular para o formato DD-MM-AAAA
+    padrao = r"^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$"
+
+    #Verifica se a data corresponde ao padrão
+    if re.match(padrao, data):
+        return True
+    else:
+        return False
+
+
 for _ in range(numero_datas):
-    data = input("\nInsira a data do treino (DD-MM-AAAA): ")
+    while True:
+        data = input("\nInsira a data do treino (DD-MM-AAAA): ")
+
+        #Verifica se a data está no formato correto
+        if validar_data(data):
+            break
+        else:
+            print("Data inválida. Por favor, insira da data no formato DD-MM-AAAA")
+
 
     #Verifica se a data já existe nos registros
     if data in treinos_por_data:
